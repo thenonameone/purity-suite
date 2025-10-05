@@ -41,7 +41,7 @@ class PurityEcosystem:
                 "pure-face": {"status": "active", "path": "intelligence/pure-face", "command": "pure_face.py"},
                 "pure-geo": {"status": "active", "path": "intelligence/pure-geo", "command": "launch_pure_geo.sh"},
                 "purity-quest": {"status": "active", "path": "intelligence/purity-quest", "command": "purity_quest.py"},
-                "pure-data": {"status": "active", "path": "forensics/pure-data", "command": "data_recovery.py"},
+                "pure-data": {"status": "active", "path": "forensics/pure-data/data-recovery", "command": "pure-data.sh"},
                 "pure-usb": {"status": "active", "path": "forensics/pure-usb", "command": "pure_usb.py"},
                 "pure-pics": {"status": "active", "path": "forensics/pure-pics", "command": "Pure_Pics.py"},
                 "anonymity-help": {"status": "active", "path": "privacy/anonymity", "command": "anonymity-help", "type": "system"},
@@ -278,7 +278,9 @@ class PurityEcosystem:
                 else:
                     subprocess.run(["python3", command], check=True)
             else:
-                subprocess.run([command], check=True)
+                # Execute using absolute path within the tool directory to avoid PATH dependency
+                cmd_path = tool_path / command
+                subprocess.run([str(cmd_path)], check=True)
                 
         except subprocess.CalledProcessError as e:
             print(f"{Colors.RED}❌ Error launching {tool_name}: {e}{Colors.END}")

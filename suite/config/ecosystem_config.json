@@ -20,7 +20,7 @@
     "pure-data": {
       "status": "active",
       "path": "forensics/pure-data",
-      "command": "data_recovery.py"
+      "command": "pure-data.sh"
     },
     "pure-usb": {
       "status": "active",
