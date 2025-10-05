@@ -1,0 +1,95 @@
+# Geolocalization AI Configuration
+
+# Data settings
+data:
+  raw_dir: "data/raw"
+  processed_dir: "data/processed"
+  models_dir: "data/models"
+  
+  # Dataset sources
+  datasets:
+    yfcc100m: "https://multimediacommons.wordpress.com/yfcc100m-core-dataset/"
+    google_landmarks: "https://github.com/cvdfoundation/google-landmark"
+    inaturalist: "https://github.com/visipedia/inat_comp/tree/master/2021"
+    openimages: "https://storage.googleapis.com/openimages/web/index.html"
+  
+  # Image preprocessing
+  image_size: [224, 224]  # Input size for models
+  max_images_per_location: 1000
+  min_images_per_location: 10
+
+# Model architecture
+model:
+  backbone: "efficientnet-b4"  # Options: resnet50, efficientnet-b4, vit-base
+  num_classes: 100000  # Number of possible location clusters
+  embedding_dim: 512
+  dropout: 0.2
+  pretrained: true
+
+# Training settings
+training:
+  batch_size: 32
+  learning_rate: 0.001
+  num_epochs: 100
+  early_stopping_patience: 10
+  validation_split: 0.2
+  test_split: 0.1
+  
+  # Loss function weights
+  hierarchical_weights:
+    country: 0.3
+    region: 0.3
+    city: 0.2
+    precise: 0.2
+
+# Geographic clustering
+clustering:
+  method: "hierarchical"  # Options: kmeans, hierarchical, dbscan
+  country_clusters: 195
+  region_clusters: 1000
+  city_clusters: 10000
+  precise_clusters: 100000
+  
+  # Distance thresholds (in km)
+  country_threshold: 500
+  region_threshold: 100
+  city_threshold: 20
+  precise_threshold: 5
+
+# Feature extraction
+features:
+  enable_landmarks: true
+  enable_terrain: true
+  enable_architecture: true
+  enable_vegetation: true
+  enable_text_ocr: true
+  enable_metadata: true
+  
+  # Pre-trained models for feature extraction
+  landmark_model: "google/landmark-recognition-2020"
+  terrain_model: "microsoft/resnet-50"
+  text_model: "paddleocr"
+
+# Evaluation
+evaluation:
+  metrics:
+    - "accuracy_country"
+    - "accuracy_region" 
+    - "accuracy_city"
+    - "distance_error_km"
+    - "top_k_accuracy"
+  
+  distance_thresholds: [1, 25, 200, 750, 2500]  # km for different accuracy levels
+
+# System settings
+system:
+  device: "auto"  # Options: auto, cpu, cuda, mps
+  num_workers: 4
+  pin_memory: true
+  mixed_precision: true
+  
+# Logging
+logging:
+  level: "INFO"
+  file: "logs/geolocalization.log"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}"

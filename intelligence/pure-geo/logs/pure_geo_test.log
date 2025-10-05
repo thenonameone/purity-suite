@@ -1,0 +1,59 @@
+2025-10-04 19:16:22 | INFO | Logger initialized with level: INFO
+2025-10-04 19:16:22 | INFO | Logging to file: logs/test_geolocalization.log
+2025-10-04 19:16:50 | INFO | Logger initialized with level: INFO
+2025-10-04 19:16:50 | INFO | Logging to file: logs/test_geolocalization.log
+2025-10-04 19:17:18 | INFO | Logger initialized with level: INFO
+2025-10-04 19:17:18 | INFO | Logging to file: logs/test_geolocalization.log
+2025-10-04 19:17:35 | INFO | Logger initialized with level: INFO
+2025-10-04 19:17:35 | INFO | Logging to file: logs/test_geolocalization.log
+2025-10-04 19:17:35 | INFO | Trainer initialized. Using device: cpu
+2025-10-04 19:17:35 | INFO | Model has 11389881 parameters
+2025-10-04 19:17:35 | INFO | Starting training...
+2025-10-04 19:17:38 | INFO | Epoch   1 | Train Loss: 59.7769 | Val Loss: 13618468.0000 | Distance Error: 5970.85 km
+2025-10-04 19:17:38 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 0.0%
+2025-10-04 19:17:38 | INFO | New best model saved! Val loss: 13618468.0000, Distance error: 5970.85 km
+2025-10-04 19:17:40 | INFO | Epoch   2 | Train Loss: 73.8686 | Val Loss: 665522.8594 | Distance Error: 5970.85 km
+2025-10-04 19:17:40 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 0.0%
+2025-10-04 19:17:41 | INFO | New best model saved! Val loss: 665522.8594, Distance error: 5970.85 km
+2025-10-04 19:17:43 | INFO | Epoch   3 | Train Loss: 54.1036 | Val Loss: 22902.5391 | Distance Error: 5970.85 km
+2025-10-04 19:17:43 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 0.0%
+2025-10-04 19:17:43 | INFO | New best model saved! Val loss: 22902.5391, Distance error: 5970.85 km
+2025-10-04 19:17:46 | INFO | Epoch   4 | Train Loss: 71.6913 | Val Loss: 1838.0551 | Distance Error: 5970.85 km
+2025-10-04 19:17:46 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 0.0%
+2025-10-04 19:17:46 | INFO | New best model saved! Val loss: 1838.0551, Distance error: 5970.85 km
+2025-10-04 19:17:48 | INFO | Epoch   5 | Train Loss: 61.5643 | Val Loss: 460.4080 | Distance Error: 5970.85 km
+2025-10-04 19:17:48 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 0.0%
+2025-10-04 19:17:49 | INFO | New best model saved! Val loss: 460.4080, Distance error: 5970.85 km
+2025-10-04 19:17:49 | INFO | Training completed!
+2025-10-04 19:22:07 | INFO | Logger initialized with level: INFO
+2025-10-04 19:22:07 | INFO | Logging to file: logs/test_geolocalization.log
+2025-10-04 19:22:08 | INFO | Trainer initialized. Using device: cpu
+2025-10-04 19:22:08 | INFO | Model has 11389881 parameters
+2025-10-04 19:22:08 | INFO | Starting training...
+2025-10-04 19:22:10 | INFO | Epoch   1 | Train Loss: 56.6498 | Val Loss: 150277472.0000 | Distance Error: 5970.85 km
+2025-10-04 19:22:10 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 0.0%
+2025-10-04 19:22:10 | INFO | New best model saved! Val loss: 150277472.0000, Distance error: 5970.85 km
+2025-10-04 19:22:12 | INFO | Epoch   2 | Train Loss: 60.3218 | Val Loss: 5896568.7500 | Distance Error: 5970.85 km
+2025-10-04 19:22:12 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 0.0%
+2025-10-04 19:22:13 | INFO | New best model saved! Val loss: 5896568.7500, Distance error: 5970.85 km
+2025-10-04 19:22:15 | INFO | Epoch   3 | Train Loss: 63.6968 | Val Loss: 16625.1294 | Distance Error: 5970.85 km
+2025-10-04 19:22:15 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 0.0%
+2025-10-04 19:22:15 | INFO | New best model saved! Val loss: 16625.1294, Distance error: 5970.85 km
+2025-10-04 19:22:17 | INFO | Epoch   4 | Train Loss: 50.3547 | Val Loss: 269.8353 | Distance Error: 6155.86 km
+2025-10-04 19:22:17 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 0.0%
+2025-10-04 19:22:18 | INFO | New best model saved! Val loss: 269.8353, Distance error: 6155.86 km
+2025-10-04 19:22:20 | INFO | Epoch   5 | Train Loss: 41.8751 | Val Loss: 34.9226 | Distance Error: 4323.50 km
+2025-10-04 19:22:20 | INFO | Accuracies | 100km: 0.0% | 500km: 0.0% | 1000km: 12.5%
+2025-10-04 19:22:21 | INFO | New best model saved! Val loss: 34.9226, Distance error: 4323.50 km
+2025-10-04 19:22:21 | INFO | Training completed!
+2025-10-04 19:22:21 | INFO | Loaded checkpoint from epoch 4
+2025-10-04 19:22:21 | INFO | Evaluating model on test set...
+2025-10-04 19:22:21 | INFO | Test Results:
+2025-10-04 19:22:21 | INFO | Mean Distance Error: 4775.85 km
+2025-10-04 19:22:21 | INFO | Median Distance Error: 4069.70 km
+2025-10-04 19:22:21 | INFO | Accuracy within 100km: 0.0%
+2025-10-04 19:22:21 | INFO | Accuracy within 500km: 0.0%
+2025-10-04 19:22:21 | INFO | Accuracy within 1000km: 0.0%
+2025-10-04 19:22:21 | INFO | Accuracy within 2000km: 20.0%
+2025-10-04 19:35:48 | INFO | Logger initialized with level: INFO
+2025-10-04 19:35:48 | INFO | Logging to file: logs/test_geolocalization.log

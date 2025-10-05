@@ -1,0 +1,14 @@
+{
+  "domain": "google.com",
+  "timestamp": "2025-10-04T09:44:20.294891",
+  "whois": {
+    "status": "simulated",
+    "registrar": "Unknown"
+  },
+  "dns": {
+    "A": "127.0.0.1",
+    "MX": "mail.example.com"
+  },
+  "subdomains": [],
+  "ssl": {}
+}

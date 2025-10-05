@@ -1,0 +1,64 @@
+{
+  "version": "3.0.0",
+  "last_updated": "2025-10-05T09:52:54.218661",
+  "tools": {
+    "pure-face": {
+      "status": "active",
+      "path": "intelligence/pure-face",
+      "command": "pure_face.py"
+    },
+    "pure-geo": {
+      "status": "active",
+      "path": "intelligence/pure-geo",
+      "command": "launch_pure_geo.sh"
+    },
+    "purity-quest": {
+      "status": "active",
+      "path": "intelligence/purity-quest",
+      "command": "purity_quest.py"
+    },
+    "pure-data": {
+      "status": "active",
+      "path": "forensics/pure-data",
+      "command": "data_recovery.py"
+    },
+    "pure-usb": {
+      "status": "active",
+      "path": "forensics/pure-usb",
+      "command": "pure_usb.py"
+    },
+    "pure-pics": {
+      "status": "active",
+      "path": "forensics/pure-pics",
+      "command": "Pure_Pics.py"
+    },
+    "anonymity-help": {
+      "status": "active",
+      "path": "privacy/anonymity",
+      "command": "anonymity-help",
+      "type": "system"
+    },
+    "go-clear": {
+      "status": "active",
+      "path": "privacy/anonymity",
+      "command": "go-clear",
+      "type": "system"
+    }
+  },
+  "quick_access": {
+    "1": "pure-face",
+    "2": "pure-geo",
+    "3": "purity-quest",
+    "4": "pure-data",
+    "5": "pure-usb",
+    "6": "pure-pics",
+    "7": "anonymity-help",
+    "8": "go-clear"
+  },
+  "tweaks": {
+    "auto_backup": true,
+    "verbose_logging": true,
+    "performance_mode": "balanced",
+    "theme": "matrix"
+  }
+}

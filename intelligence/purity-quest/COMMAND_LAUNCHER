@@ -1,0 +1,396 @@
+#!/bin/bash
+
+# COMMAND_LAUNCHER - Purity Suite Interactive Command Selector
+# Part of the Purity Suite
+# Usage: ./COMMAND_LAUNCHER or use alias 'commander'
+
+clear
+
+echo "╔═══════════════════════════════════════════════════════════════════════════════╗"
+echo "║                        🎯 PURITY SUITE COMMAND LAUNCHER                       ║"
+echo "║                           Interactive Command Selector                        ║"
+echo "╚═══════════════════════════════════════════════════════════════════════════════╝"
+echo ""
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "🔍 NETWORK RECONNAISSANCE & IP ANALYSIS"
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo " 1. PURE_IP_FINDER - Complete IP reconnaissance (find ip-<domain>)"
+echo ""
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "🕵️ ANONYMITY & PRIVACY TOOLS" 
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo " 2. Make Me Anonymous - Enable complete anonymity"
+echo " 3. Make Me Visible - Disable anonymity, return to normal"
+echo " 4. Hide Me - Quick identity hiding"
+echo " 5. Anonymous - Quick anonymity toggle"
+echo " 6. Check Anonymity - Verify current anonymity status"
+echo " 7. New Identity - Generate new anonymous identity"
+echo " 8. Emergency Stop - Emergency anonymity shutdown"
+echo ""
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "🎭 PURITY SUITE TOOLS"
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo " 9. Purity Quest - Advanced OSINT intelligence gathering"
+echo "10. Make Me Pure - System purity and security optimization"
+echo "11. Pure USB - USB payload creator and BadUSB programming"
+echo "12. Pure Pics - Steganography and image payload hiding"
+echo "13. Pure Payloads - Advanced payload generation"
+echo ""
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "📱 COMMUNICATION TOOLS"
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "14. SMS Sender GUI - Graphical SMS sending interface"
+echo "15. Android SMS Sender - Android device SMS gateway"
+echo "16. Email SMS Sender - Email-to-SMS bridge"
+echo "17. Start SMS Service - Enable SMS background service"
+echo "18. Stop SMS Service - Disable SMS background service"
+echo "19. Check SMS Service - Verify SMS service status"
+echo "20. Send Anonymous SMS - Anonymous SMS sending"
+echo ""
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "🔍 OSINT & RECONNAISSANCE TOOLS"
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "21. theHarvester GUI - Email and domain intelligence"
+echo "22. PhoneInfoga - Phone number OSINT investigation"
+echo "23. Mosint - Email OSINT and investigation"
+echo "24. Webtech - Web technology detection"
+echo "25. Bing-IP2Hosts - IP-to-hostname discovery"
+echo "26. Pure Face - Reverse image OSINT (photo -> public info)"
+echo ""
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "🛠️ UTILITY TOOLS & SYSTEM COMMANDS"
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "27. Google Search - Command-line Google search"
+echo "28. Katoolin - Kali Linux tools installer"
+echo "29. Ngrok - Secure tunneling to localhost"
+echo "30. Ollama - Local AI model management"
+echo "31. Run Command - Quick command execution wrapper"
+echo "32. Face Detection - Facial detection in images/video"
+echo "33. Face Recognition - Facial recognition and identification"
+echo ""
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "📚 DOCUMENTATION & HELP"
+echo "═══════════════════════════════════════════════════════════════════════════════"
+echo "34. View Full Commands List - Complete documentation"
+echo "35. View Simple Commands - Basic commands reference"
+echo "36. Edit Commands List - Modify commands documentation"
+echo ""
+echo "═══════════════════════════════════════════════════════════════════════════════"
+
+# Function to execute commands
+execute_command() {
+    case $1 in
+        1)
+            echo "🎯 PURE_IP_FINDER - Enter domain for IP reconnaissance:"
+            read -p "Domain: " domain
+            if [[ -n "$domain" ]]; then
+                find ip-"$domain"
+            else
+                echo "❌ No domain provided!"
+            fi
+            ;;
+        2)
+            echo "🔒 Enabling anonymity mode..."
+            make-me-anonymous
+            ;;
+        3)
+            echo "👁️ Making you visible..."
+            make-me-visible
+            ;;
+        4)
+            echo "🕵️ Hiding your identity..."
+            hide-me
+            ;;
+        5)
+            echo "🔄 Toggling anonymity..."
+            anonymous
+            ;;
+        6)
+            echo "🔍 Checking anonymity status..."
+            /usr/local/bin/make-me-anonymous status
+            ;;
+        7)
+            echo "🎭 Generating new identity..."
+            /usr/local/bin/make-me-anonymous identity
+            ;;
+        8)
+            echo "🚨 Emergency anonymity stop..."
+            /usr/local/bin/make-me-anonymous emergency
+            ;;
+        9)
+            echo "🔮 Launching Purity Quest OSINT tool..."
+            python3 ~/purity_quest.py
+            ;;
+        10)
+            echo "🏆 Making you pure..."
+            make-me-pure
+            ;;
+        11)
+            echo "🔌 Launching Pure USB toolkit..."
+            python3 ~/pure_usb.py
+            ;;
+        12)
+            echo "📸 Launching Pure Pics steganography..."
+            python3 ~/Pure_Pics.py
+            ;;
+        13)
+            echo "💥 Launching Pure Payloads generator..."
+            python3 ~/Desktop/Pure_Payloads.py
+            ;;
+        14)
+            echo "📨 Launching SMS Sender GUI..."
+            python3 ~/sms_sender_gui.py
+            ;;
+        15)
+            echo "📱 Launching Android SMS Sender..."
+            python3 ~/android_sms_sender.py
+            ;;
+        16)
+            echo "📧 Launching Email SMS Sender..."
+            python3 ~/email_sms_sender.py
+            ;;
+        17)
+            echo "🟢 Starting SMS service..."
+            ./start_sms_service.sh
+            ;;
+        18)
+            echo "🔴 Stopping SMS service..."
+            ./stop_sms_service.sh
+            ;;
+        19)
+            echo "📊 Checking SMS service status..."
+            ./check_sms_service.sh
+            ;;
+        20)
+            echo "🕵️ Sending anonymous SMS..."
+            ./send_anonymous_sms.sh
+            ;;
+        21)
+            echo "🌐 Launching theHarvester GUI..."
+            python3 ~/theHarvester_gui.py
+            ;;
+        22)
+            echo "📞 Launching PhoneInfoga..."
+            read -p "Enter phone number: " phone
+            if [[ -n "$phone" ]]; then
+                phoneinfoga scan -n "$phone"
+            else
+                phoneinfoga
+            fi
+            ;;
+        23)
+            echo "🔍 Launching Mosint..."
+            read -p "Enter email address: " email
+            if [[ -n "$email" ]]; then
+                mosint "$email"
+            else
+                mosint
+            fi
+            ;;
+        24)
+            echo "🔍 Web Technology Scanner..."
+            read -p "Enter URL/domain: " url
+            if [[ -n "$url" ]]; then
+                webtech "$url"
+            else
+                echo "❌ No URL provided!"
+            fi
+            ;;
+        25)
+            echo "🌍 Bing IP-to-Hosts discovery..."
+            read -p "Enter IP address: " ip
+            if [[ -n "$ip" ]]; then
+                bing-ip2hosts "$ip"
+            else
+                echo "❌ No IP provided!"
+            fi
+            ;;
+        26)
+            echo "🧠 Pure Face - Reverse image OSINT..."
+            read -p "Enter image path: " path
+            if [[ -n "$path" ]]; then
+                if [[ -x "/home/xx/purity-quest/.venv/bin/python" ]]; then
+                    "/home/xx/purity-quest/.venv/bin/python" /home/xx/purity-quest/PURE_FACE "$path"
+                else
+                    python3 /home/xx/purity-quest/PURE_FACE "$path"
+                fi
+            else
+                echo "❌ No image path provided!"
+            fi
+            ;;
+        27)
+            echo "🔧 Google Search..."
+            read -p "Enter search query: " query
+            if [[ -n "$query" ]]; then
+                google "$query"
+            else
+                echo "❌ No search query provided!"
+            fi
+            ;;
+        28)
+            echo "🐧 Launching Katoolin..."
+            katoolin
+            ;;
+        29)
+            echo "🌐 Launching Ngrok tunnel..."
+            read -p "Enter port to tunnel (default: 8080): " port
+            port=${port:-8080}
+            ngrok http "$port"
+            ;;
+        30)
+            echo "🤖 Ollama AI Model Management..."
+            echo "Available commands: list, pull, run, rm"
+            read -p "Enter ollama command: " cmd
+            if [[ -n "$cmd" ]]; then
+                ollama $cmd
+            else
+                ollama list
+            fi
+            ;;
+        31)
+            echo "🚀 Run Command..."
+            run
+            ;;
+        32)
+            echo "👤 Face Detection..."
+            read -p "Enter image/video path: " path
+            if [[ -n "$path" ]]; then
+                face_detection "$path"
+            else
+                echo "❌ No file path provided!"
+            fi
+            ;;
+        33)
+            echo "🆔 Face Recognition..."
+            read -p "Enter image path: " path
+            if [[ -n "$path" ]]; then
+                face_recognition "$path"
+            else
+                echo "❌ No image path provided!"
+            fi
+            ;;
+        34)
+            echo "📚 Opening full commands documentation..."
+            less "/home/xx/Desktop/my custom commands.txt"
+            ;;
+        35)
+            echo "📋 Viewing simple commands reference..."
+            cat ~/command
+            ;;
+        36)
+            echo "✏️ Opening commands editor..."
+            echo "Which file to edit?"
+            echo "1) Simple commands (~/command)"
+            echo "2) Full documentation"
+            read -p "Choice (1-2): " edit_choice
+            case $edit_choice in
+                1) nano ~/command ;;
+                2) nano "/home/xx/Desktop/my custom commands.txt" ;;
+                *) echo "❌ Invalid choice!" ;;
+            esac
+            ;;
+        q|Q|quit|exit)
+            echo "👋 Goodbye! Stay pure!"
+            exit 0
+            ;;
+        *)
+            echo "❌ Invalid selection! Please choose 1-35 or 'q' to quit."
+            return 1
+            ;;
+    esac
+}
+
+# Main loop
+while true; do
+    echo ""
+    echo "🎯 Select a command (1-36) or 'q' to quit:"
+    read -p "Your choice: " choice
+    
+    if [[ "$choice" == "q" || "$choice" == "Q" || "$choice" == "quit" || "$choice" == "exit" ]]; then
+        echo "👋 Goodbye! Stay pure!"
+        break
+    fi
+    
+    execute_command "$choice"
+    
+    echo ""
+    echo "Press Enter to continue or 'q' to quit..."
+    read -r continue_choice
+    if [[ "$continue_choice" == "q" || "$continue_choice" == "Q" ]]; then
+        echo "👋 Goodbye! Stay pure!"
+        break
+    fi
+    
+    clear
+    # Redisplay header for next iteration
+    echo "╔═══════════════════════════════════════════════════════════════════════════════╗"
+    echo "║                        🎯 PURITY SUITE COMMAND LAUNCHER                       ║"
+    echo "║                           Interactive Command Selector                        ║"
+    echo "╚═══════════════════════════════════════════════════════════════════════════════╝"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "🔍 NETWORK RECONNAISSANCE & IP ANALYSIS"
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo " 1. PURE_IP_FINDER - Complete IP reconnaissance (find ip-<domain>)"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "🕵️ ANONYMITY & PRIVACY TOOLS" 
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo " 2. Make Me Anonymous - Enable complete anonymity"
+    echo " 3. Make Me Visible - Disable anonymity, return to normal"
+    echo " 4. Hide Me - Quick identity hiding"
+    echo " 5. Anonymous - Quick anonymity toggle"
+    echo " 6. Check Anonymity - Verify current anonymity status"
+    echo " 7. New Identity - Generate new anonymous identity"
+    echo " 8. Emergency Stop - Emergency anonymity shutdown"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "🎭 PURITY SUITE TOOLS"
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo " 9. Purity Quest - Advanced OSINT intelligence gathering"
+    echo "10. Make Me Pure - System purity and security optimization"
+    echo "11. Pure USB - USB payload creator and BadUSB programming"
+    echo "12. Pure Pics - Steganography and image payload hiding"
+    echo "13. Pure Payloads - Advanced payload generation"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "📱 COMMUNICATION TOOLS"
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "14. SMS Sender GUI - Graphical SMS sending interface"
+    echo "15. Android SMS Sender - Android device SMS gateway"
+    echo "16. Email SMS Sender - Email-to-SMS bridge"
+    echo "17. Start SMS Service - Enable SMS background service"
+    echo "18. Stop SMS Service - Disable SMS background service"
+    echo "19. Check SMS Service - Verify SMS service status"
+    echo "20. Send Anonymous SMS - Anonymous SMS sending"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "🔍 OSINT & RECONNAISSANCE TOOLS"
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "21. theHarvester GUI - Email and domain intelligence"
+    echo "22. PhoneInfoga - Phone number OSINT investigation"
+    echo "23. Mosint - Email OSINT and investigation"
+    echo "24. Webtech - Web technology detection"
+    echo "25. Bing-IP2Hosts - IP-to-hostname discovery"
+    echo "26. Pure Face - Reverse image OSINT (photo -> public info)"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "🛠️ UTILITY TOOLS & SYSTEM COMMANDS"
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "27. Google Search - Command-line Google search"
+    echo "28. Katoolin - Kali Linux tools installer"
+    echo "29. Ngrok - Secure tunneling to localhost"
+    echo "30. Ollama - Local AI model management"
+    echo "31. Run Command - Quick command execution wrapper"
+    echo "32. Face Detection - Facial detection in images/video"
+    echo "33. Face Recognition - Facial recognition and identification"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "📚 DOCUMENTATION & HELP"
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+    echo "34. View Full Commands List - Complete documentation"
+    echo "35. View Simple Commands - Basic commands reference"
+    echo "36. Edit Commands List - Modify commands documentation"
+    echo ""
+    echo "═══════════════════════════════════════════════════════════════════════════════"
+done

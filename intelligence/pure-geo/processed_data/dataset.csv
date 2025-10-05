@@ -1,0 +1,6 @@
+image_path,lat,lon,terrain_type,city,country
+test_data/desert_1.jpg,31.7917,-106.4458,desert,El Paso,USA
+test_data/forest_1.jpg,47.6062,-122.3321,forest,Seattle,USA
+test_data/urban_1.jpg,40.7128,-74.006,urban,New York,USA
+test_data/beach_1.jpg,21.3099,-157.8581,beach,Honolulu,USA
+test_data/mountain_1.jpg,39.7392,-104.9903,mountain,Denver,USA

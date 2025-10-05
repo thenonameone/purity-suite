@@ -1,0 +1,119 @@
+#!/bin/bash
+
+# PURE_IP_FINDER - Purity Suite Tool
+# Automated IP Reconnaissance Script
+# Usage: ./PURE_IP_FINDER <domain>
+
+TARGET="$1"
+
+if [ -z "$TARGET" ]; then
+    echo "Usage: $0 <domain>"
+    echo "Example: $0 captainandstoker.com"
+    echo "PURE_IP_FINDER - Part of Purity Suite"
+    exit 1
+fi
+
+echo "=========================================="
+echo "🔍 PURE_IP_FINDER - Purity Suite Tool"
+echo "IP RECONNAISSANCE REPORT FOR: $TARGET"
+echo "$(date)"
+echo "=========================================="
+
+# Function to run command and handle errors
+run_tool() {
+    local tool_name="$1"
+    local command="$2"
+    
+    echo
+    echo "--- $tool_name ---"
+    echo "Command: $command"
+    echo
+    
+    if eval "$command" 2>/dev/null; then
+        echo "✓ $tool_name completed successfully"
+    else
+        echo "✗ $tool_name failed or not available"
+    fi
+    echo "----------------------------------------"
+}
+
+# 1. Basic DNS Resolution
+run_tool "NSLOOKUP" "nslookup $TARGET"
+
+# 2. Detailed DNS Information  
+run_tool "DIG (A Records)" "dig $TARGET A +short"
+run_tool "DIG (All Records)" "dig $TARGET ANY"
+
+# 3. Simple DNS Lookup
+run_tool "HOST" "host $TARGET"
+
+# 4. IPv6 Resolution
+run_tool "IPv6 Resolution" "dig $TARGET AAAA +short"
+
+# 5. MX Records (Mail Servers)
+run_tool "MX Records" "dig $TARGET MX +short"
+
+# 6. Basic Connectivity Test
+echo
+echo "--- PING TEST ---"
+echo "Command: ping -c 4 $TARGET"
+echo
+ping -c 4 "$TARGET" 2>/dev/null || echo "✗ Ping failed or not responding"
+echo "----------------------------------------"
+
+# 7. WHOIS Information
+run_tool "WHOIS" "whois $TARGET"
+
+# 8. HTTP Headers Analysis
+run_tool "HTTP Headers (curl)" "curl -I -s http://$TARGET"
+run_tool "HTTPS Headers (curl)" "curl -I -s https://$TARGET"
+
+# 9. Network Path Tracing
+echo
+echo "--- TRACEROUTE ---"
+echo "Command: traceroute $TARGET"
+echo
+if command -v traceroute >/dev/null 2>&1; then
+    timeout 30 traceroute "$TARGET" 2>/dev/null || echo "✗ Traceroute timed out or failed"
+else
+    echo "✗ traceroute not available, trying tracepath"
+    timeout 30 tracepath "$TARGET" 2>/dev/null || echo "✗ tracepath also failed"
+fi
+echo "----------------------------------------"
+
+# 10. Basic Port Scan (if nmap available)
+if command -v nmap >/dev/null 2>&1; then
+    echo
+    echo "--- NMAP BASIC SCAN ---"
+    echo "Command: nmap -F $TARGET"
+    echo
+    echo "⚠️  Running basic port scan (common ports only)"
+    nmap -F "$TARGET" 2>/dev/null || echo "✗ Nmap scan failed"
+    echo "----------------------------------------"
+else
+    echo
+    echo "--- NMAP NOT AVAILABLE ---"
+    echo "Install nmap for port scanning capabilities"
+    echo "----------------------------------------"
+fi
+
+# 11. SSL Certificate Info (if openssl available)
+if command -v openssl >/dev/null 2>&1; then
+    echo
+    echo "--- SSL CERTIFICATE INFO ---"
+    echo "Command: openssl s_client -connect $TARGET:443"
+    echo
+    echo | timeout 10 openssl s_client -connect "$TARGET:443" -servername "$TARGET" 2>/dev/null | openssl x509 -noout -text 2>/dev/null || echo "✗ SSL certificate check failed"
+    echo "----------------------------------------"
+fi
+
+# Summary
+echo
+echo "=========================================="
+echo "🎯 PURE_IP_FINDER - RECONNAISSANCE COMPLETE"
+echo "Target: $TARGET"
+echo "Completed: $(date)"
+echo "=========================================="
+
+echo
+echo "💡 TIP: Save this output with: $0 $TARGET > ${TARGET}_recon_report.txt"

@@ -1,0 +1,43 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg-info/
+*.egg
+*.eggs/
+build/
+dist/
+
+# Environments
+.venv/
+venv/
+.env
+.env.*
+**/venv/
+
+# Coverage and test
+.coverage*
+htmlcov/
+.pytest_cache/
+.mypy_cache/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# OS / Editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Project specific
+suite/cache/
+# Local environment directories
+environment/
+environment/face_recognition_env/
+# Large model artifacts (not tracked; provide download instructions instead)
+intelligence/pure-geo/data/test_models/
+intelligence/pure-geo/trained_models/
+intelligence/pure-geo/venv/

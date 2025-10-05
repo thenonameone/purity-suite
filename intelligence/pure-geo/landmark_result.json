@@ -1,0 +1,183 @@
+{
+  "image_path": "real_test_images/real_landmark.jpg",
+  "predicted_coordinates": {
+    "latitude": 88.55968475341797,
+    "longitude": -171.0597381591797
+  },
+  "hierarchical_predictions": {
+    "country": [
+      {
+        "class_id": 2,
+        "confidence": 0.9850656390190125,
+        "coordinates": {
+          "latitude": 40.67977832068995,
+          "longitude": -74.07621966260993
+        }
+      },
+      {
+        "class_id": 0,
+        "confidence": 0.014883794821798801,
+        "coordinates": {
+          "latitude": 45.43298351769664,
+          "longitude": -122.51309225363804
+        }
+      },
+      {
+        "class_id": 3,
+        "confidence": 5.0565286073833704e-05,
+        "coordinates": {
+          "latitude": 46.59453671424216,
+          "longitude": 7.673886214753743
+        }
+      },
+      {
+        "class_id": 4,
+        "confidence": 1.4631625772087986e-11,
+        "coordinates": {
+          "latitude": 21.313083383495854,
+          "longitude": -157.73929573635965
+        }
+      },
+      {
+        "class_id": 1,
+        "confidence": 4.3996325650348545e-35,
+        "coordinates": {
+          "latitude": 24.99516234290734,
+          "longitude": 55.060310176099925
+        }
+      }
+    ],
+    "region": [
+      {
+        "class_id": 4,
+        "confidence": 0.9996134638786316,
+        "coordinates": {
+          "latitude": 21.28940454694173,
+          "longitude": -157.760639673578
+        }
+      },
+      {
+        "class_id": 3,
+        "confidence": 0.00038625788874924183,
+        "coordinates": {
+          "latitude": 40.61907762075166,
+          "longitude": -74.0835291753923
+        }
+      },
+      {
+        "class_id": 9,
+        "confidence": 2.9789666200485954e-07,
+        "coordinates": {
+          "latitude": 45.302227171934206,
+          "longitude": -122.6743372295899
+        }
+      },
+      {
+        "class_id": 1,
+        "confidence": 7.603693171951809e-18,
+        "coordinates": {
+          "latitude": 45.4499866961761,
+          "longitude": -122.5353874451128
+        }
+      },
+      {
+        "class_id": 2,
+        "confidence": 8.180624326397937e-20,
+        "coordinates": {
+          "latitude": 46.55423972314902,
+          "longitude": 7.605016892030513
+        }
+      }
+    ],
+    "city": [
+      {
+        "class_id": 4,
+        "confidence": 0.9996862411499023,
+        "coordinates": {
+          "latitude": 21.317042937311157,
+          "longitude": -157.79866909798562
+        }
+      },
+      {
+        "class_id": 7,
+        "confidence": 0.00031305014272220433,
+        "coordinates": {
+          "latitude": 46.55423972314902,
+          "longitude": 7.605016892030513
+        }
+      },
+      {
+        "class_id": 9,
+        "confidence": 6.838911872364406e-07,
+        "coordinates": {
+          "latitude": 45.47916890494841,
+          "longitude": -122.5800877044465
+        }
+      },
+      {
+        "class_id": 6,
+        "confidence": 7.177287930648646e-11,
+        "coordinates": {
+          "latitude": 40.649710561884405,
+          "longitude": -74.11396561289834
+        }
+      },
+      {
+        "class_id": 8,
+        "confidence": 8.069329926474467e-12,
+        "coordinates": {
+          "latitude": 45.302227171934206,
+          "longitude": -122.6743372295899
+        }
+      }
+    ],
+    "precise": [
+      {
+        "class_id": 4,
+        "confidence": 0.9999105930328369,
+        "coordinates": {
+          "latitude": 21.268588950932894,
+          "longitude": -157.7826850242327
+        }
+      },
+      {
+        "class_id": 18,
+        "confidence": 7.722141890553758e-05,
+        "coordinates": {
+          "latitude": 45.44590641540778,
+          "longitude": -122.55670819135597
+        }
+      },
+      {
+        "class_id": 20,
+        "confidence": 8.558133231417742e-06,
+        "coordinates": {
+          "latitude": 21.30238154763837,
+          "longitude": -157.82735973953393
+        }
+      },
+      {
+        "class_id": 12,
+        "confidence": 3.4300389870622894e-06,
+        "coordinates": {
+          "latitude": 40.52717879735343,
+          "longitude": -73.99221986287417
+        }
+      },
+      {
+        "class_id": 23,
+        "confidence": 7.475343011265068e-08,
+        "coordinates": {
+          "latitude": 40.69540522542972,
+          "longitude": -74.10866300887955
+        }
+      }
+    ]
+  },
+  "confidence_scores": {
+    "country": 0.9850656390190125,
+    "region": 0.9996134638786316,
+    "city": 0.9996862411499023,
+    "precise": 0.9999105930328369
+  }
+}

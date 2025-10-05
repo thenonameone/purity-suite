@@ -1,0 +1,172 @@
+# Optimized Configuration for Geolocalization AI
+# Based on analysis of mission.jpg prediction issues
+
+# Data settings
+data:
+  raw_dir: "data/images"
+  processed_dir: "processed_data"
+  models_dir: "trained_models"
+  
+  # Enhanced image preprocessing
+  image_size: [512, 512]      # Increased for better feature extraction
+  max_images_per_location: 500
+  min_images_per_location: 10  # More samples per location
+  
+  # Data augmentation improvements
+  augmentation:
+    rotation_range: 15
+    brightness_range: 0.1
+    contrast_range: 0.1
+    saturation_range: 0.1
+    horizontal_flip: true
+
+# Enhanced model architecture
+model:
+  backbone: "efficientnet-b4"  # Better feature extraction
+  num_classes: 1000           # More granular classification
+  embedding_dim: 512          # Richer feature representations
+  dropout: 0.3               # Better regularization
+  pretrained: true
+  
+  # Multi-scale feature extraction
+  use_multi_scale: true
+  scales: [224, 320, 512]
+  
+  # Attention mechanisms
+  attention_type: "spatial"
+  attention_dropout: 0.1
+
+# Improved training settings
+training:
+  batch_size: 16
+  learning_rate: 0.001       # Lower learning rate for stability
+  num_epochs: 100
+  early_stopping_patience: 15
+  validation_split: 0.2
+  test_split: 0.1
+  
+  # Enhanced loss function
+  loss_type: "combined"      # Geographic distance + classification
+  
+  # Better hierarchical weights (based on geographic specificity)
+  hierarchical_weights:
+    country: 0.15           # Less weight on country (usually easier)
+    region: 0.25           # Moderate weight
+    city: 0.35             # Higher weight (more informative)
+    precise: 0.25          # Balanced precise location
+  
+  # Learning rate scheduling
+  scheduler:
+    type: "cosine_annealing"
+    min_lr: 0.00001
+    warmup_epochs: 5
+  
+  # Optimizer settings
+  optimizer: "adamw"
+  weight_decay: 0.01
+  
+# Optimized geographic clustering
+clustering:
+  method: "hierarchical"     # Better geographic clustering
+  country_clusters: 25      # More realistic numbers
+  region_clusters: 100
+  city_clusters: 500
+  precise_clusters: 2000
+  
+  # Distance-based thresholds (km)
+  country_threshold: 2000   # Country level
+  region_threshold: 500     # State/province level
+  city_threshold: 50        # City level
+  precise_threshold: 5      # Neighborhood level
+  
+  # Clustering improvements
+  use_geographic_constraints: true
+  min_samples_per_cluster: 5
+  outlier_detection: true
+
+# Enhanced feature extraction
+features:
+  enable_landmarks: true     # Critical for mission identification
+  enable_terrain: true
+  enable_architecture: true  # Essential for mission analysis
+  enable_vegetation: true    # Climate indicators
+  enable_text_ocr: true      # Signs, text clues
+  enable_metadata: true
+  
+  # Advanced features
+  enable_shadow_analysis: true  # Time/location from shadows
+  enable_sky_analysis: true     # Weather patterns
+  enable_color_analysis: true   # Regional color palettes
+  
+  # Feature fusion
+  fusion_method: "attention"
+  feature_dropout: 0.1
+
+# Evaluation improvements  
+evaluation:
+  metrics:
+    - "accuracy_country"
+    - "accuracy_region"
+    - "accuracy_city" 
+    - "accuracy_precise"
+    - "distance_error_km"
+    - "haversine_distance"
+    - "geographic_bias"
+  
+  # Multi-level distance thresholds
+  distance_thresholds: [1, 5, 25, 100, 500, 1000, 2000]
+  
+  # Confidence calibration
+  calibrate_confidence: true
+  confidence_threshold: 0.7
+
+# System optimizations
+system:
+  device: "auto"
+  num_workers: 8
+  pin_memory: true
+  mixed_precision: true
+  
+  # Memory optimizations
+  gradient_checkpointing: true
+  max_batch_size: 32
+
+# Enhanced logging and monitoring
+logging:
+  level: "INFO"
+  file: "logs/optimized_geolocalization.log"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}"
+  
+  # Monitoring
+  log_predictions: true
+  log_confidence_distribution: true
+  log_geographic_distribution: true
+
+# Ensemble methods
+ensemble:
+  enable: true
+  models:
+    - "efficientnet-b4"
+    - "resnet101" 
+    - "densenet161"
+  
+  fusion_method: "weighted_average"
+  confidence_weighting: true
+  
+  # Test-time augmentation
+  tta_enabled: true
+  tta_transforms: 8
+
+# Post-processing
+post_processing:
+  # Geographic constraints
+  enforce_land_areas: true
+  filter_ocean_predictions: true
+  
+  # Confidence adjustments
+  adjust_by_training_density: true
+  penalize_outliers: true
+  
+  # Final coordinate refinement
+  coordinate_smoothing: true
+  smoothing_radius: 10  # km

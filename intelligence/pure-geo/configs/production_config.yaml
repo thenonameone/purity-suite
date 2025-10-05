@@ -1,0 +1,92 @@
+data:
+  augmentation:
+    brightness_range: 0.2
+    color_jitter: true
+    contrast_range: 0.2
+    gaussian_blur: true
+    horizontal_flip: true
+    rotation_range: 20
+    saturation_range: 0.2
+    vertical_flip: false
+  image_dir: data/real_world_images
+  image_size:
+  - 384
+  - 384
+  test_csv: data/datasets/test_dataset.csv
+  train_csv: data/datasets/train_dataset.csv
+  val_csv: data/datasets/val_dataset.csv
+evaluation:
+  distance_thresholds:
+  - 1
+  - 5
+  - 10
+  - 25
+  - 50
+  - 100
+  - 250
+  - 500
+  - 1000
+  - 2000
+  metrics:
+  - accuracy_continent
+  - accuracy_region
+  - accuracy_city
+  - accuracy_precise
+  - distance_error_km
+  - distance_error_median
+  - continent_accuracy_1
+  - region_accuracy_5
+  - city_accuracy_25
+  - precise_accuracy_100
+experiment_name: pure_geo_production_20251004
+logging:
+  checkpoint_every: 5
+  log_images: true
+  tensorboard: true
+  wandb:
+    enabled: true
+    entity: your-team
+  project: pure-geo-production
+model:
+  attention:
+    dropout: 0.1
+    type: spatial_channel
+  backbone: efficientnet-b5
+  dropout: 0.3
+  embedding_dim: 768
+  feature_fusion: concatenate
+  multi_scale: true
+  pretrained: true
+  scales:
+  - 224
+  - 320
+  - 384
+system:
+  device: auto
+  num_workers: 12
+  persistent_workers: true
+  pin_memory: true
+  prefetch_factor: 4
+training:
+  batch_size: 24
+  early_stopping_patience: 20
+  gradient_clipping: 1.0
+  learning_rate: 0.0008
+  loss:
+    components:
+      classification_loss: 0.6
+      distance_loss: 0.4
+    hierarchical_weights:
+      city: 0.35
+      continent: 0.1
+      precise: 0.35
+      region: 0.2
+    type: combined_geographic
+  mixed_precision: true
+  num_epochs: 150
+  optimizer: adamw
+  scheduler:
+    min_lr: 1.0e-05
+    type: cosine_annealing_warm_restarts
+    warmup_epochs: 10
+  weight_decay: 0.01

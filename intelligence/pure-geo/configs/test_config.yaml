@@ -1,0 +1,81 @@
+# Test Configuration for Geolocalization AI
+
+# Data settings
+data:
+  raw_dir: "data/test_images"
+  processed_dir: "data/test_processed"
+  models_dir: "data/test_models"
+  
+  # Image preprocessing
+  image_size: [224, 224]
+  max_images_per_location: 100
+  min_images_per_location: 2
+
+# Model architecture (smaller for testing)
+model:
+  backbone: "resnet18"  # Smaller model for testing
+  num_classes: 100
+  embedding_dim: 128    # Reduced embedding size
+  dropout: 0.2
+  pretrained: true
+
+# Training settings (reduced for testing)
+training:
+  batch_size: 4         # Small batch size for testing
+  learning_rate: 0.01
+  num_epochs: 5         # Few epochs for testing
+  early_stopping_patience: 3
+  validation_split: 0.3
+  test_split: 0.2
+  
+  # Loss function weights
+  hierarchical_weights:
+    country: 0.4
+    region: 0.3
+    city: 0.2
+    precise: 0.1
+
+# Geographic clustering (reduced for testing)
+clustering:
+  method: "kmeans"
+  country_clusters: 5    # Very small numbers for test
+  region_clusters: 10
+  city_clusters: 15
+  precise_clusters: 25
+  
+  # Distance thresholds (in km)
+  country_threshold: 1000
+  region_threshold: 500
+  city_threshold: 100
+  precise_threshold: 50
+
+# Feature extraction
+features:
+  enable_landmarks: false  # Disable for testing
+  enable_terrain: true
+  enable_architecture: false
+  enable_vegetation: false
+  enable_text_ocr: false
+  enable_metadata: true
+
+# Evaluation
+evaluation:
+  metrics:
+    - "accuracy_country"
+    - "accuracy_region" 
+    - "distance_error_km"
+  
+  distance_thresholds: [100, 500, 1000, 2000]  # km for different accuracy levels
+
+# System settings
+system:
+  device: "auto"
+  num_workers: 2        # Reduced for testing
+  pin_memory: false     # Disable for testing
+  mixed_precision: false # Disable for testing
+  
+# Logging
+logging:
+  level: "INFO"
+  file: "logs/test_geolocalization.log"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {message}"
